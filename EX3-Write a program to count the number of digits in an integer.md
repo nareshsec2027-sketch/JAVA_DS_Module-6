@@ -1,83 +1,55 @@
-## EX 4: Nature of Resultant Matrix (Odd/Even/Mixed)
+## EX 3: Count Number of Digits in an Integer
 
 ## DATE: 10.11.2025
 ## AIM:
-To write a Java program to evaluate whether Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of the resultant matrix.
+To write a Java program to count the number of digits in an integer using recursion.
 
 ## Algorithm
 
 Start the program.
 
-Read dimensions and elements of Matrix A and B.
+Read the integer input.
 
-Add the matrices element-wise to form Matrix C.
+Define a recursive function countDigits(num):
 
-Check each element in Matrix C:
+Base case: If num == 0, return 0.
 
-If all elements are even → Resultant is Even Matrix.
-
-If all are odd → Odd Matrix.
-
-Otherwise → Mixed Matrix.
+Else, return 1 + countDigits(num / 10).
 
 Display the result.
 
+Stop the program.
+
 ## Program
 ```
-Program to find the nature of resultant matrix.
+Program to count the number of digits in an integer.
 Developed by: Naresh P.S
 RegisterNumber: 212223040127
 Date: 10.11.2025
 
 import java.util.*;
-public class MatrixNature {
+public class CountDigits {
+    static int countDigits(int num) {
+        if (num == 0)
+            return 0;
+        return 1 + countDigits(num / 10);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter rows and columns: ");
-        int r = sc.nextInt(), c = sc.nextInt();
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
 
-        int[][] A = new int[r][c];
-        int[][] B = new int[r][c];
-        int[][] C = new int[r][c];
-
-        System.out.println("Enter Matrix A (odd numbers):");
-        for (int i = 0; i < r; i++)
-            for (int j = 0; j < c; j++)
-                A[i][j] = sc.nextInt();
-
-        System.out.println("Enter Matrix B (even numbers):");
-        for (int i = 0; i < r; i++)
-            for (int j = 0; j < c; j++)
-                B[i][j] = sc.nextInt();
-
-        boolean allEven = true, allOdd = true;
-
-        System.out.println("Resultant Matrix C:");
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                C[i][j] = A[i][j] + B[i][j];
-                System.out.print(C[i][j] + " ");
-                if (C[i][j] % 2 == 0)
-                    allOdd = false;
-                else
-                    allEven = false;
-            }
-            System.out.println();
-        }
-
-        if (allEven)
-            System.out.println("Resultant Matrix is EVEN.");
-        else if (allOdd)
-            System.out.println("Resultant Matrix is ODD.");
-        else
-            System.out.println("Resultant Matrix is MIXED.");
+        int count = countDigits(num);
+        System.out.println("Number of digits: " + count);
     }
 }
 ```
+
 ## Output
-<img width="1918" height="789" alt="image" src="https://github.com/user-attachments/assets/2cfbb0ac-90af-4548-8dc2-9332b1eee26b" />
+<img width="1919" height="780" alt="image" src="https://github.com/user-attachments/assets/b2c81755-76ff-4a99-962e-f6e05bd67c6e" />
 
 
 ## Result
 
-Thus, the Java program to find the nature of the resultant matrix is implemented successfully.
+Thus, the Java program to count the number of digits in an integer is implemented successfully.
